@@ -1,6 +1,6 @@
-# DocPls CLI
+# DocsPls CLI
 
-[![npm version](https://img.shields.io/npm/v/@docspls/cli.svg?style=flat-square)](https://www.npmjs.com/package/@docspls/cli)
+[![npm version](https://img.shields.io/npm/v/docspls-cli.svg?style=flat-square)](https://www.npmjs.com/package/docspls-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen?style=flat-square)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg?style=flat-square)](https://www.typescriptlang.org/)
@@ -20,18 +20,18 @@ A powerful command-line interface for managing and tracking project dependencies
 
 1. Install the CLI globally:
    ```bash
-   npm install -g @docspls/cli
+   npm install -g docspls-cli
    ```
 
    Or use with npx:
    ```bash
-   npx @docspls/cli [command]
+   npx docspls-cli [command]
    ```
 
    Or install it locally in your project:
 
 ```bash
-npm install --save-dev @docspls/cli
+npm install --save-dev docspls-cli
 ```
 
 ## 📖 Usage
@@ -99,28 +99,6 @@ docspls docs:update <dependency-name> <docs-url> [options]
 - `-p, --project <path>`: Path to the project directory
 - `--global`: Update the global configuration
 
-## 🔌 MCP (Model Context Protocol) Server Support
-
-DocPls CLI includes built-in support for MCP (Model Context Protocol) servers, enabling powerful integration with various tools and services. The following MCP servers are available by default:
-
-### Available MCP Servers
-
-1. **DocsPls Server**
-   - **Command**: `docspls mcp`
-   - **Purpose**: Handles core documentation and dependency analysis
-   - **Environment**: No special environment variables required
-
-2. **Git Integration**
-   - **Command**: `uvx mcp-server-git`
-   - **Purpose**: Provides Git repository information and operations
-   - **Environment**: No special environment variables required
-
-3. **Memory Server**
-   - **Command**: `npx -y @modelcontextprotocol/server-memory`
-   - **Purpose**: Manages context and memory for the development environment
-   - **Environment**:
-     - `MEMORY_FILE_PATH`: Path to store memory data (optional)
-
 ### Configuring MCP Servers
 
 You can configure the MCP servers by creating or editing the `mcp_config.json` file in your project root or home directory:
@@ -168,7 +146,7 @@ DocPls CLI can be configured using a `.docplsrc` file in your project root or ho
 
 ```json
 {
-  "$schema": "./node_modules/@docspls/cli/schema.json",
+  "$schema": "./node_modules/docspls-cli/schema.json",
   "ignorePatterns": ["**/node_modules/**", "**/dist/**"],
   "cacheDir": ".docpls/cache",
   "documentation": {

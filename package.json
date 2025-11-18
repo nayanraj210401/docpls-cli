@@ -1,6 +1,6 @@
 {
-  "name": "@docspls/cli",
-  "version": "1.0.0",
+  "name": "docspls-cli",
+  "version": "0.0.1",
   "description": "DocsPls CLI for dependency management",
   "main": "dist/index.js",
   "bin": {
@@ -9,8 +9,13 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/cli.js",
-    "dev": "ts-node src/cli.ts"
+    "dev": "ts-node src/cli.ts",
+    "prepublishOnly": "npm run build"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "cli",
     "dependencies",
