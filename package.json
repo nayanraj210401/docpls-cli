@@ -1,0 +1,34 @@
+{
+  "name": "docpls-cli",
+  "version": "1.0.0",
+  "description": "DocPls CLI for dependency management",
+  "main": "dist/index.js",
+  "bin": {
+    "docpls-cli": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "ts-node src/cli.ts"
+  },
+  "keywords": [
+    "cli",
+    "dependencies",
+    "documentation"
+  ],
+  "author": "nayanraj210401",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@toon-format/toon": "^1.0.0",
+    "chokidar": "^3.5.3",
+    "commander": "^11.0.0",
+    "glob": "^10.3.0"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}
