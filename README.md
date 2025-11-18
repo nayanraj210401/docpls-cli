@@ -1,58 +1,206 @@
 # DocPls CLI
 
-A lightweight CLI tool for dependency management and documentation tracking with focused search capabilities.
+[![npm version](https://img.shields.io/npm/v/@docspls/cli.svg?style=flat-square)](https://www.npmjs.com/package/@docspls/cli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen?style=flat-square)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg?style=flat-square)](https://www.typescriptlang.org/)
 
-## Installation
+A powerful command-line interface for managing and tracking project dependencies with intelligent documentation discovery and search capabilities. DocPls CLI helps developers maintain better documentation hygiene by providing tools to discover, track, and search through project dependencies and their documentation.
+
+## ✨ Features
+
+- 🔍 **Smart Dependency Discovery**: Automatically detects and analyzes project dependencies
+- 📚 **Documentation Tracking**: Keep track of documentation URLs for all your dependencies
+- ⚡ **Fast Search**: Quickly find dependencies and their documentation
+- 🔄 **Real-time Updates**: Watch for changes in your project and update documentation automatically
+- 📦 **Multi-package Support**: Works with npm, Yarn, pnpm, and Python projects
+- 🛠 **Extensible**: Built with TypeScript for type safety and extensibility
+
+## 🚀 Installation
+
+1. Install the CLI globally:
+   ```bash
+   npm install -g @docspls/cli
+   ```
+
+   Or use with npx:
+   ```bash
+   npx @docspls/cli [command]
+   ```
+
+   Or install it locally in your project:
 
 ```bash
-npm install -g docpls-cli
+npm install --save-dev @docspls/cli
 ```
 
-## Usage
+## 📖 Usage
 
 ### Initialize a Project
 
-Analyze and start tracking a project:
+Analyze and start tracking a project's dependencies:
 
 ```bash
-docpls-cli init [project-path]
+docspls init [project-path]
 ```
 
 If no path is provided, it will analyze the current directory.
 
 ### List Dependencies
 
-Show all dependencies in a project:
+Show all dependencies in a project with their documentation status:
 
 ```bash
-docpls-cli list [-p, --project <path>]
+docspls list [options]
 ```
+
+**Options:**
+- `-p, --project <path>`: Path to the project directory (default: current directory)
+- `--json`: Output in JSON format for programmatic use
+- `--no-color`: Disable colored output
 
 ### Search Dependencies
 
 Search for dependencies by name or metadata:
 
 ```bash
-docpls-cli query <search-term> [--type dependency|keyword] [--project <path>]
+docspls query <search-term> [options]
 ```
 
-- **dependency search**: Find packages by name (default)
-- **keyword search**: Search dependency names and documentation URLs
+**Search Types:**
+- `--type dependency`: Find packages by name (default)
+- `--type keyword`: Search dependency names and documentation URLs
+
+**Options:**
+- `-p, --project <path>`: Path to the project directory
+- `--json`: Output in JSON format
 
 ### Watch for Changes
 
 Monitor project files for changes and automatically update dependency information:
 
 ```bash
-docpls-cli watch [project-path]
+docspls watch [project-path] [options]
 ```
 
-### Add Documentation URL
+**Options:**
+- `--interval <ms>`: Polling interval in milliseconds (default: 1000)
+- `--ignore <patterns>`: Comma-separated list of glob patterns to ignore
+
+### Update Documentation
+
+Add or update documentation URL for a dependency:
+
+```bash
+docspls docs:update <dependency-name> <docs-url> [options]
+```
+
+**Options:**
+- `-p, --project <path>`: Path to the project directory
+- `--global`: Update the global configuration
+
+## 🔌 MCP (Model Context Protocol) Server Support
+
+DocPls CLI includes built-in support for MCP (Model Context Protocol) servers, enabling powerful integration with various tools and services. The following MCP servers are available by default:
+
+### Available MCP Servers
+
+1. **DocsPls Server**
+   - **Command**: `docspls mcp`
+   - **Purpose**: Handles core documentation and dependency analysis
+   - **Environment**: No special environment variables required
+
+2. **Git Integration**
+   - **Command**: `uvx mcp-server-git`
+   - **Purpose**: Provides Git repository information and operations
+   - **Environment**: No special environment variables required
+
+3. **Memory Server**
+   - **Command**: `npx -y @modelcontextprotocol/server-memory`
+   - **Purpose**: Manages context and memory for the development environment
+   - **Environment**:
+     - `MEMORY_FILE_PATH`: Path to store memory data (optional)
+
+### Configuring MCP Servers
+
+You can configure the MCP servers by creating or editing the `mcp_config.json` file in your project root or home directory:
+
+```json
+{
+  "mcpServers": {
+    "docpls": {
+      "args": [
+        "-y",
+        "@docspls/cli",
+        "mcp"
+      ],
+      "command": "npx",
+      "disabled": false,
+      "env": {}
+    },
+  }
+}
+```
+
+### Using MCP Servers
+
+To start all configured MCP servers:
+
+```bash
+docspls mcp:start
+```
+
+To start a specific MCP server:
+
+```bash
+docspls mcp:start <server-name>
+```
+
+To check the status of MCP servers:
+
+```bash
+docspls mcp:status
+```
+
+## 🔧 Configuration
+
+DocPls CLI can be configured using a `.docplsrc` file in your project root or home directory:
+
+```json
+{
+  "$schema": "./node_modules/@docspls/cli/schema.json",
+  "ignorePatterns": ["**/node_modules/**", "**/dist/**"],
+  "cacheDir": ".docpls/cache",
+  "documentation": {
+    "autoUpdate": true,
+    "defaultBranch": "main"
+  }
+}
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to contribute to this project.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ and TypeScript
+- Inspired by the need for better documentation management in modern development workflows
+
+---
+
+<div align="center">
+  Made with ☕ by the DocPls Team
+</div>
 
 Add a custom documentation URL for a dependency:
 
 ```bash
-docpls-cli add-docs <dependency-name> <docs-url>
+docspls add-docs <dependency-name> <docs-url>
 ```
 
 ### List Tracked Projects
@@ -60,7 +208,7 @@ docpls-cli add-docs <dependency-name> <docs-url>
 Show all projects being tracked:
 
 ```bash
-docpls-cli projects
+docspls projects
 ```
 
 ### Remove Project
@@ -68,7 +216,7 @@ docpls-cli projects
 Stop tracking a project:
 
 ```bash
-docpls-cli remove <project-path>
+docspls remove <project-path>
 ```
 
 ### Project Information
@@ -76,7 +224,7 @@ docpls-cli remove <project-path>
 Show detailed information about a project:
 
 ```bash
-docpls-cli info [project-path]
+docspls info [project-path]
 ```
 
 ## Supported Project Types
@@ -94,25 +242,25 @@ The CLI stores project data in `~/.docpls/`:
 
 ```bash
 # Initialize current directory
-docpls-cli init
+docspls init
 
 # List dependencies in current project
-docpls-cli list
+docspls list
 
 # Search for react-related dependencies
-docpls-cli query react
+docspls query react
 
 # Search in documentation URLs
-docpls-cli query "docs" --type keyword
+docspls query "docs" --type keyword
 
 # Add documentation for a specific package
-docpls-cli add-docs react https://reactjs.org/docs
+docspls add-docs react https://reactjs.org/docs
 
 # Watch for changes
-docpls-cli watch
+docspls watch
 
 # Show all tracked projects
-docpls-cli projects
+docspls projects
 ```
 
 ## Development

@@ -1,10 +1,10 @@
 {
-  "name": "docpls-cli",
+  "name": "@docspls/cli",
   "version": "1.0.0",
-  "description": "DocPls CLI for dependency management",
+  "description": "DocsPls CLI for dependency management",
   "main": "dist/index.js",
   "bin": {
-    "docpls-cli": "dist/cli.js"
+    "docspls": "dist/cli.js"
   },
   "scripts": {
     "build": "tsc",

@@ -8,8 +8,8 @@ import { DocPlsMCPServer } from './mcp/server';
 const program = new Command();
 
 program
-  .name('docpls-cli')
-  .description('DocPls CLI for dependency management and documentation')
+  .name('docspls')
+  .description('DocsPls CLI for dependency management and documentation')
   .version('1.0.0');
 
 // Initialize project

@@ -9,7 +9,7 @@ Simplify DocPls from complex vector-based system to lightweight CLI + MCP server
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │   CLI Tool      │────▶│  Local Store     │────▶│  MCP Server     │
-│  (docpls-cli)   │     │ (JSON files)     │     │ (Simple Tools)  │
+│  (docspls)      │     │ (JSON files)     │     │ (Simple Tools)  │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
