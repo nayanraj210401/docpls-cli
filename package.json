@@ -1,6 +1,6 @@
 {
   "name": "docspls-cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DocsPls CLI for dependency management",
   "main": "dist/index.js",
   "bin": {
@@ -11,6 +11,9 @@
     "start": "node dist/cli.js",
     "dev": "ts-node src/cli.ts",
     "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "files": [
     "dist",
@@ -32,8 +35,9 @@
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.19.25",
     "ts-node": "^10.9.0",
-    "typescript": "^5.0.0"
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }

@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name('docspls')
   .description('DocsPls CLI for dependency management and documentation')
-  .version('1.0.0');
+  .version('0.0.3');
 
 // Initialize project
 program
