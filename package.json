@@ -1,6 +1,6 @@
 {
   "name": "docspls-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "DocsPls CLI for dependency management",
   "main": "dist/index.js",
   "bin": {
