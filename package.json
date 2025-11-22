@@ -10,7 +10,7 @@
     "build": "tsup",
     "start": "node dist/cli.js",
     "dev": "tsup --watch",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=18.0.0"
