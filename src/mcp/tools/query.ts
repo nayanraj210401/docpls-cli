@@ -7,7 +7,7 @@ export class QueryTool extends BaseTool {
   async execute(args: QueryArgs): Promise<ToolResponse> {
     try {
       const project = await this.getProject(args.projectPath);
-      
+
       switch (args.type || 'dependency') {
         case 'dependency':
           return await this.queryDependencies(project, args);
@@ -32,11 +32,11 @@ export class QueryTool extends BaseTool {
     // Search by name
     const searchTerm = args.query.toLowerCase();
     const caseSensitive = args.filters?.caseSensitive || false;
-    
+
     const matches = dependencies.filter((dep: Dependency) => {
       const name = caseSensitive ? dep.name : dep.name.toLowerCase();
       const query = caseSensitive ? args.query : searchTerm;
-      
+
       if (args.filters?.exactMatch) {
         return name === query;
       } else {
@@ -44,21 +44,41 @@ export class QueryTool extends BaseTool {
       }
     });
 
-    return this.createResponse({
-      queryType: 'dependency',
-      searchTerm: args.query,
-      totalMatches: matches.length,
-      matches: matches.map((dep: Dependency) => ({
-        name: dep.name,
-        version: dep.version,
-        type: dep.type,
-        location: dep.location,
-        hasTypes: dep.hasTypes,
-        docsUrl: dep.sourceLocation
-      }))
-    });
+    const config = this.getConfig(args.projectPath);
+
+    // Always return Markdown format for agents
+    return this.createResponse(this.formatDependencyMarkdown(matches, args.query));
   }
 
+  private formatDependencyMarkdown(matches: Dependency[], query: string): string {
+    if (matches.length === 0) {
+      return `No dependencies found matching "${query}".\n\n### � Suggested Action\n- **Check Spelling**: Ensure the package name is correct.\n- **List All**: Use \`list_dependencies\` to see what is available.\n- **Broaden Search**: Try a shorter keyword.`;
+    }
+
+    let markdown = `# Search Results: "${query}"\n\n`;
+    markdown += `Found ${matches.length} match${matches.length === 1 ? '' : 'es'}.\n\n`;
+
+    matches.forEach(dep => {
+      const version = dep.resolvedVersion || dep.version || 'unknown';
+      const typeEmoji = dep.type === 'devDependency' ? '🛠️' : '📦';
+
+      markdown += `## ${typeEmoji} ${dep.name} (${version})\n`;
+      markdown += `- **Type**: ${dep.type}\n`;
+
+      if (dep.docsUrl) {
+        markdown += `- **Docs**: ${dep.docsUrl}\n`;
+      }
+
+      markdown += `\n**Next Steps**:\n`;
+      markdown += `- ℹ️ Details: \`get_dependency(name="${dep.name}")\`\n`;
+      if (dep.hasTypes) {
+        markdown += `- 📝 Types: \`get_dependency\` (check typesLocation)\n`;
+      }
+      markdown += `\n---\n\n`;
+    });
+
+    return markdown;
+  }
 
   private async queryKeywords(project: any, args: QueryArgs): Promise<ToolResponse> {
     const dependencies = project.dependencies;
@@ -93,15 +113,9 @@ export class QueryTool extends BaseTool {
       }
     }
 
-    return this.createResponse({
-      queryType: 'keyword',
-      searchTerm: args.query,
-      totalMatches: matches.length,
-      matches
-    });
+    const config = this.getConfig(args.projectPath);
+
+    // Always return Markdown format for agents
+    return this.createResponse(this.formatDependencyMarkdown(matches as Dependency[], args.query));
   }
-
-
-
-
 }

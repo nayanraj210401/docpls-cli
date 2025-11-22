@@ -1,4 +1,5 @@
-import { Dependency, Project } from '../../types';
+import { Dependency, Project, DocPlsConfig } from '../../types';
+export { DocPlsConfig } from '../../types';
 
 export interface MCPToolArgs {
   [key: string]: any;

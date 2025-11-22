@@ -58,3 +58,8 @@ export interface NodeModulesResolver {
   getDocumentationUrl(name: string): string;
   parseLockFile(lockFilePath: string): Map<string, string>;
 }
+
+export interface DocPlsConfig {
+  mcpServer?: string;
+  defaultDocumentationFormat?: 'markdown' | 'json';
+}

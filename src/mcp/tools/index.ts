@@ -34,7 +34,7 @@ export class ToolRegistry {
     return [
       {
         name: 'list_dependencies',
-        description: 'List all dependencies in a project',
+        description: 'List all dependencies in a project. Use this to get a high-level overview of what packages are installed, their versions, and types. Useful for initial exploration or finding a package name.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -61,7 +61,7 @@ export class ToolRegistry {
       },
       {
         name: 'get_dependency',
-        description: 'Get detailed information about a specific dependency including version, type, and available documentation',
+        description: 'Get detailed information about a specific dependency. Use this when you need to find the physical location of a package, check for TypeScript support, or find its documentation URL.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -79,7 +79,7 @@ export class ToolRegistry {
       },
       {
         name: 'get_documentation',
-        description: 'Get documentation URL for a specific dependency',
+        description: 'Get documentation URL for a specific dependency. Use this when you need to read the official docs, find examples, or check the API reference.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -97,7 +97,7 @@ export class ToolRegistry {
       },
       {
         name: 'update_documentation',
-        description: 'Update documentation URL for a dependency',
+        description: 'Update documentation URL for a dependency. Use this to fix broken or missing documentation links.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -119,7 +119,7 @@ export class ToolRegistry {
       },
       {
         name: 'get_project_info',
-        description: 'Get detailed information about a project',
+        description: 'Get detailed information about a project. Use this to understand the project structure, type (Node/Python), and overall dependency statistics.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -132,7 +132,7 @@ export class ToolRegistry {
       },
       {
         name: 'query',
-        description: 'Search dependencies and their metadata. Use this to find packages by name, search documentation URLs, or filter dependencies by type.',
+        description: 'Search dependencies and their metadata. Use this when you are looking for a package but don\'t know the exact name, or want to find packages related to a keyword.',
         inputSchema: {
           type: 'object',
           properties: {
