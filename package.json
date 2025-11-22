@@ -11,7 +11,6 @@
     "start": "node dist/cli.js",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
-    "release": "release-it"
   },
   "engines": {
     "node": ">=18.0.0"
