@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocsPls CLI - Intelligent Dependency Management</title>
+    <meta name="description" content="Manage and document project dependencies with MCP server integration.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-cube"></i>
+                    Docs<span>Pls</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#mcp">MCP Integration</a>
+                    <a href="docs.html">Documentation</a>
+                    <a href="https://github.com/nayanraj210401/docpls-cli" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content fade-in">
+                <h1>Manage Project Dependencies with <span style="color: var(--primary)">Intelligence</span></h1>
+                <p>The CLI that integrates with the Model Context Protocol for real-time documentation, monitoring, and
+                    seamless IDE workflows.</p>
+
+                <div class="cta-group">
+                    <a href="docs.html#installation" class="btn btn-primary">Get Started</a>
+                    <a href="https://github.com/nayanraj210401/docpls-cli" class="btn btn-outline"
+                        style="margin-left: 1rem;">View on GitHub</a>
+                </div>
+
+                <div class="install-block">
+                    <span class="prompt" style="color: var(--secondary); margin-right: 0.5rem;">$</span>
+                    <span class="install-cmd">npm install -g docspls-cli</span>
+                    <button class="copy-btn" title="Copy to clipboard">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-in">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="container" style="padding: 6rem 2rem; text-align: center;">
+            <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">The <span style="color: var(--secondary)">Blind
+                        Spot</span> in AI Coding</h2>
+
+                <div class="glass-panel"
+                    style="padding: 2.5rem; text-align: left; border-left: 4px solid var(--secondary);">
+                    <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">
+                        <i class="fas fa-exclamation-triangle" style="color: var(--secondary); margin-right: 10px;"></i>
+                        <strong>The Issue:</strong> AI editors like <em>Cursor</em> and <em>Windsurf</em> typically
+                        don't index <code>node_modules</code> or internal dependencies to save performance.
+                    </p>
+                    <p style="margin-bottom: 0; font-size: 1.2rem;">
+                        <i class="fas fa-times-circle" style="color: #ef4444; margin-right: 10px;"></i>
+                        <strong>The Result:</strong> Your AI guesses APIs, hallucinates methods that don't exist, and
+                        struggles with internal libraries.
+                    </p>
+                </div>
+
+                <p style="margin-top: 3rem; font-size: 1.4rem; font-weight: 600; color: var(--text-main);">
+                    DocsPls solves this by letting your Agent <span
+                        style="color: var(--primary); text-decoration: underline; text-decoration-color: var(--secondary);">explore
+                        specific dependencies</span> on demand.
+                </p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features container">
+            <div class="section-header fade-in">
+                <h2>Why DocsPls?</h2>
+                <p>Built for modern development workflows, giving you control and insight into your project's ecosystem.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="feature-card glass-panel fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Dependency Tracking</h3>
+                    <p>Automatically detect and track dependencies in your project. Keep your documentation in sync with
+                        your code.</p>
+                </div>
+
+                <div class="feature-card glass-panel fade-in" style="transition-delay: 0.1s">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Watch for changes in your project files and dependencies. Get instant updates when your stack
+                        evolves.</p>
+                </div>
+
+                <div class="feature-card glass-panel fade-in" style="transition-delay: 0.2s">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>MCP Integration</h3>
+                    <p>Expose your project context to AI models via the Model Context Protocol. Enhance your coding
+                        assistant's IQ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MCP Integration Section -->
+        <section id="mcp" class="mcp-section">
+            <div class="container mcp-container">
+                <div class="mcp-content fade-in">
+                    <h2>Power Your AI with Context</h2>
+                    <p>DocsPls isn't just a CLI; it's a bridge between your code and your AI tools. By running the MCP
+                        server, you provide structured context about your dependencies to tools like Claude and IDE
+                        extensions.</p>
+
+                    <ul style="list-style: none; margin-top: 2rem;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--accent)"></i>
+                            <span>Standardized Protocol Support</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--accent)"></i>
+                            <span>Zero-config IDE Integration</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--accent)"></i>
+                            <span>Programmatic Access to Docs</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mcp-visual fade-in">
+                    <div class="code-block">
+                        <div class="code-header"
+                            style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.8rem;">settings.json
+                        </div>
+                        <pre><code><span class="property">"mcpServers"</span>: {
+  <span class="property">"docpls"</span>: {
+    <span class="property">"command"</span>: <span class="string">"npx"</span>,
+    <span class="property">"args"</span>: [
+      <span class="string">"-y"</span>,
+      <span class="string">"docspls-cli"</span>,
+      <span class="string">"mcp"</span>
+    ]
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="font-size: 1.2rem;">
+                    <i class="fas fa-cube"></i>
+                    Docs<span>Pls</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 DocsPls CLI. Open Source Software.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
