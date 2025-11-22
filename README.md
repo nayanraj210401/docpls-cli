@@ -11,6 +11,13 @@ DocsPls CLI helps you:
 - Monitor project changes in real-time
 - Integrate with MCP (Model Context Protocol) for enhanced functionality
 
+## Supported Node.js Versions
+
+DocsPls CLI supports the following Node.js versions:
+- Node.js 18.x
+- Node.js 20.x
+- Node.js 22.x and newer
+
 ## Installation
 
 ```bash
