@@ -10,7 +10,8 @@
     "build": "tsup",
     "start": "node dist/cli.js",
     "dev": "tsup --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "release-it"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -36,6 +37,8 @@
   "devDependencies": {
     "@types/glob": "^8.0.0",
     "@types/node": "^20.19.25",
+    "auto-changelog": "^2.5.0",
+    "release-it": "^19.0.6",
     "ts-node": "^10.9.0",
     "tsup": "^8.5.1",
     "tsx": "^4.20.6",
